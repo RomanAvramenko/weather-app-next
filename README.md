@@ -1,4 +1,4 @@
-# Weather App
+# Weather App (Next.js version)
 
 ## Weather App это простое приложение на React для отображения погоды в любом городе мира
 
@@ -14,11 +14,10 @@
 <ul>
     <li>HTML, CSS, JavaScript - Базовый стек языков</li>
 	<li>React.js - JavaScript-библиотека</li>
+	<li>Next.js - JavaScript-фреймворк для реализации Server-Side рендеринга</li>
 	<li>Redux.js - JavaScript-библиотека для управления состоянием приложения</li>
-	<li>Sass - Препроцессор CSS</li> 
-	<li>React-Router - Библиотека предоставляющая динамическое перемещение между страницами</li>
-    <li>Axios - JavaScript-библиотека для осуществления HTTP запросов</li> 
-	<li>Moment.js - JavaScript-библиотека для работы с датами</li> 
+    <li>Axios - JavaScript-библиотека для осуществления HTTP запросов</li>
+	<li>Moment.js - JavaScript-библиотека для работы с датами</li>
 </ul>
 
 ### Задействованы API

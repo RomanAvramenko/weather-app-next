@@ -13,7 +13,7 @@ const Index = () => {
       <Header />
       <SearchBar />
       <GeoItem />
-      {/* <ItemList /> */}
+      <ItemList />
       <style jsx>{`
         @font-face {
           font-family: 'Roboto';

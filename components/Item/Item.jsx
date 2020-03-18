@@ -5,7 +5,7 @@ export const Item = ({ response, deleteItem }) => {
 
   return (
     <>
-      {response.map(item => {
+      {response && response.map(item => {
         const image = {
           backgroundImage: `url(https://openweathermap.org/img/wn/${item.icon}@2x.png)`
         }
@@ -22,14 +22,11 @@ export const Item = ({ response, deleteItem }) => {
               <div className="list-item__name">
                 <span>{item.name}</span>
               </div>
-              <Link
-                to={{
-                  pathname: "/expand",
-                  state: { name: item.name }
-                }}
-                className="list-item__expand">
-                more &nbsp;
-              <i className="fas fa-angle-double-right"></i>
+              <Link href="/expand">
+                <a href="/expand" className="list-item__expand">
+                  more &nbsp;
+                  <i className="fas fa-angle-double-right"></i>
+                </a>
               </Link>
             </li>
             <style jsx>{`
