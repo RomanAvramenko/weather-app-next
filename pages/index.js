@@ -11,9 +11,11 @@ const Index = () => {
   return (
     <Provider store={store}>
       <Header />
-      <SearchBar />
-      <GeoItem />
-      <ItemList />
+      <div className="wrapper">
+        <SearchBar />
+        <GeoItem />
+        <ItemList />
+      </div>
       <style jsx>{`
         @font-face {
           font-family: 'Roboto';
@@ -25,7 +27,7 @@ const Index = () => {
           box-sizing: border-box;
         }
         body {
-          background-color: rgb(216, 216, 216);
+          background-color: #d8d8d8;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
             "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
             sans-serif;
@@ -35,6 +37,10 @@ const Index = () => {
         code {
           font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
             monospace;
+        }
+        .wrapper {
+          max-width: 400px;
+          margin: 0 auto;
         }
       `}</style>
     </Provider>

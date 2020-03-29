@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 export const Header = () => {
   return (
@@ -13,15 +13,20 @@ export const Header = () => {
         </div>
       </header>
       <style jsx>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
         .app {
           text-align: center;
         }
         .app-logo {
-            display: flex;
-            flex-direction: row;
+          display: flex;
+          flex-direction: row;
         }
         a {
-          font-family:'Roboto';
+          font-family: "Roboto";
           text-decoration: none;
           color: white;
           font-size: 2em;
@@ -34,15 +39,15 @@ export const Header = () => {
           margin: auto 1em;
         }
         .app-header {
-            background-color: #282c34;
-            width: 100vw;
-            height: 3em;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
+          background-color: #282c34;
+          width: 100vw;
+          height: 3em;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
         }
       `}</style>
     </>
-  )
-}
+  );
+};

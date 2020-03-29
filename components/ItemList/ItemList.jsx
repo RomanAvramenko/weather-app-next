@@ -1,17 +1,16 @@
-import React, { useEffect } from "react"
-import { useSelector, useDispatch } from 'react-redux'
-import { Item } from '../Item/Item'
-import { itemListGetData } from "../../store/actions/itemList"
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Item } from "../Item/Item";
+import { itemListGetData } from "../../store/actions/itemList";
 
 export const ItemList = () => {
-
-  const dispatch = useDispatch()
-  const { inputItem } = useSelector(state => state.search)
+  const dispatch = useDispatch();
+  const { inputItem } = useSelector(state => state.search);
 
   useEffect(() => {
-    dispatch(itemListGetData())
+    dispatch(itemListGetData());
     // eslint-disable-next-line
-  }, [inputItem])
+  }, [inputItem]);
 
   return (
     <>
@@ -32,13 +31,14 @@ export const ItemList = () => {
           width: 100%;
           border-radius: 5px;
           font-size: 1.3em;
+          padding: 0;
         }
         @media (max-width: 640px) {
-            .box {
-                width: 20em;
-            }
+          .box {
+            width: 20em;
+          }
         }
       `}</style>
     </>
   );
-}
+};
