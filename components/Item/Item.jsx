@@ -6,7 +6,6 @@ import { deleteItem } from "../../store/actions/itemList";
 export const Item = () => {
   const { response } = useSelector(state => state.itemList);
   const dispatch = useDispatch();
-  console.log(response);
   return (
     response &&
     response.map(item => {
@@ -14,29 +13,27 @@ export const Item = () => {
         backgroundImage: `url(https://openweathermap.org/img/wn/${item.icon}@2x.png)`
       };
       return (
-        <>
-          <li className="list-item" key={item.id}>
-            <div className="list-item__temp">{item.temp}&deg;</div>
-            <div className="list-item__img" style={image}></div>
-            <button
-              className="list-item__btn"
-              onClick={() => dispatch(deleteItem(item.id))}
-            >
-              X
-            </button>
-            <div className="list-item__name">
-              <span>{item.name}</span>
-            </div>
-            <Link href="/expand">
-              <a href="/expand" className="list-item__expand">
-                more &nbsp; >>
-              </a>
-            </Link>
-          </li>
+        <li className="list-item" key={item.id}>
+          <div className="list-item__temp">{item.temp}&deg;</div>
+          <div className="list-item__img" style={image}></div>
+          <button
+            className="list-item__btn"
+            onClick={() => dispatch(deleteItem(item.id))}
+          >
+            x
+          </button>
+          <div className="list-item__name">
+            <span>{item.name}</span>
+          </div>
+          <Link href="/expand">
+            <a href="/expand" className="list-item__expand">
+              more &nbsp; >>
+            </a>
+          </Link>
           <style jsx>{`
             .list-item {
-              font-family: 'Roboto';
-              margin: .5em auto;
+              font-family: "Roboto";
+              margin: 0.5em auto;
               background-color: rgb(255, 255, 255);
               border: 1px solid rgba(0, 0, 0, 0.2);
               border-radius: 0.5em;
@@ -54,6 +51,7 @@ export const Item = () => {
             }
             .list-item__temp {
               grid-area: temp;
+              align-self: center;
               justify-self: self-end;
               font-size: 2em;
               color: rgb(0, 0, 0);
@@ -89,7 +87,7 @@ export const Item = () => {
               }
             }
           `}</style>
-        </>
+        </li>
       );
     })
   );

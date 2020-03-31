@@ -1,25 +1,22 @@
-import React from 'react'
-import Link from 'next/link'
-import { Provider } from 'react-redux'
-import { Header } from '../components/Header/Header'
-import { SearchBar } from '../components/SearchBar/SearchBar'
-import { ItemList } from '../components/ItemList/ItemList'
-import { store } from '../store/store'
-import { GeoItem } from '../components/GeoItem/GeoItem'
+import React from "react";
+import { Header } from "../components/Header/Header";
+import { SearchBar } from "../components/SearchBar/SearchBar";
+import { ItemList } from "../components/ItemList/ItemList";
+import { GeoItem } from "../components/GeoItem/GeoItem";
 
 const Index = () => {
   return (
-    <Provider store={store}>
+    <>
       <Header />
       <div className="wrapper">
         <SearchBar />
         <GeoItem />
         <ItemList />
       </div>
-      <style jsx>{`
+      <style jsx global>{`
         @font-face {
-          font-family: 'Roboto';
-              src: url('/public/fonts/Roboto-Regular.ttf');
+          font-family: "Roboto";
+          src: url("/public/fonts/Roboto-Regular.ttf");
         }
         * {
           margin: 0;
@@ -28,9 +25,7 @@ const Index = () => {
         }
         body {
           background-color: #d8d8d8;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-            "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-            sans-serif;
+          font-family: "Roboto";
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
@@ -43,8 +38,8 @@ const Index = () => {
           margin: 0 auto;
         }
       `}</style>
-    </Provider>
-  )
-}
+    </>
+  );
+};
 
-export default Index
+export default Index;

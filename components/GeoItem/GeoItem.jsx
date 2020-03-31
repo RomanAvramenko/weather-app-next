@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import Link from 'next/link'
-import { useSelector, useDispatch } from 'react-redux'
+import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
 import { Spinner } from "../spinner/spinner";
 import { getGeoData } from "../../store/actions/geolocation";
 
 export const GeoItem = () => {
-  const geoWeather = useSelector(state => state.geoloc.geoWeather)
-  const dispatch = useDispatch()
+  const geoWeather = useSelector(state => state.geoloc.geoWeather);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getGeoData())
+    dispatch(getGeoData());
     // eslint-disable-next-line
-  }, [])
+  }, []);
 
   if (geoWeather) {
     const { name, temp, icon, desc } = geoWeather;
@@ -33,40 +33,39 @@ export const GeoItem = () => {
           <div className="geoLocItem__expand">
             <Link href="/expand">
               <a href="/expand" className="geoLocItem__expand">
-                more &nbsp;
-              <i className="fas fa-angle-double-right"></i>
+                more &nbsp; >>
               </a>
             </Link>
           </div>
         </div>
         <style jsx>{`
           .geoLocItem {
-            font-family: 'Roboto';
+            font-family: "Roboto";
             display: grid;
             grid-template-columns: 1fr, 1fr;
             grid-template-rows: 1fr, 1fr;
             justify-items: center;
-            grid-template-areas: 
-                "temp img"
-                "city link"
-            ;
+            grid-template-areas:
+              "temp img"
+              "city link";
           }
           .geoLocItem__temp {
             grid-area: temp;
+            align-self: center;
             font-size: 3em;
-            color: rgb(0, 0, 0)
+            color: rgb(0, 0, 0);
           }
           .geoLocItem__img {
-              grid-area: img;
-              justify-self: center;
+            grid-area: img;
+            justify-self: center;
           }
           .geoLocItem__name {
-              grid-area: city;
+            grid-area: city;
           }
           .geoLocItem__expand {
-              grid-area: link;
-              text-decoration: none;
-              color:rgb(0, 0, 0);
+            grid-area: link;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
           }
           @media (max-width: 640px) {
             .geoLocItem {
@@ -76,11 +75,10 @@ export const GeoItem = () => {
               height: 6em;
             }
           }
-          `}</style>
+        `}</style>
       </>
     );
   } else {
-    return (<Spinner />)
+    return <Spinner />;
   }
-}
-
+};

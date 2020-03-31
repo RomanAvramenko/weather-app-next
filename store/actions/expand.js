@@ -3,6 +3,7 @@ import { EXPAND_FORECAST_DATA } from "../types"
 import { URL_IMAGE, API_KEY_US, API_KEY_OW, URL_FORECAST } from "../../constants";
 
 export const getData = (location) => {
+  console.log(location);
   return async dispatch => {
     const state = location.state
     if (state) {
