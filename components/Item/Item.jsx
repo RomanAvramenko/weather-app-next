@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteItem } from "../../store/actions/itemList";
 
 export const Item = () => {
-  const { response } = useSelector(state => state.itemList);
+  const { response } = useSelector((state) => state.itemList);
   const dispatch = useDispatch();
   return (
     response &&
-    response.map(item => {
+    response.map((item) => {
       const image = {
-        backgroundImage: `url(https://openweathermap.org/img/wn/${item.icon}@2x.png)`
+        backgroundImage: `url(https://openweathermap.org/img/wn/${item.icon}@2x.png)`,
       };
       return (
         <li className="list-item" key={item.id}>
@@ -22,10 +22,8 @@ export const Item = () => {
           >
             x
           </button>
-          <div className="list-item__name">
-            <span>{item.name}</span>
-          </div>
-          <Link href="/expand">
+          <div className="list-item__name">{item.name}</div>
+          <Link href={{ pathname: "expand", query: { name: item.name } }}>
             <a href="/expand" className="list-item__expand">
               more &nbsp; >>
             </a>

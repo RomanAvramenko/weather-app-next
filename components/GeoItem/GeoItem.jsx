@@ -31,11 +31,11 @@ export const GeoItem = () => {
             />
           </div>
           <div className="geoLocItem__expand">
-            <Link href="/expand">
-              <a href="/expand" className="geoLocItem__expand">
-                more &nbsp; >>
-              </a>
-            </Link>
+          <Link href={{ pathname: "expand", query: { name: name } }}>
+            <a href="/expand" className="geoLocItem__expand">
+              more &nbsp; >>
+            </a>
+          </Link>
           </div>
         </div>
         <style jsx>{`

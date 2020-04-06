@@ -10,7 +10,7 @@ export const ExpandPicture = () => {
   };
   return (
     <>
-      <div className="picture" key={imageResp[0].id} style={bgImage}></div>
+      <span className="picture" key={imageResp[0].id} style={bgImage}></span>
       <style jsx>{`
         .picture {
           height: 400px;

@@ -3,19 +3,10 @@ import { EXPAND_FORECAST_DATA } from "../types"
 import { URL_IMAGE, API_KEY_US, API_KEY_OW, URL_FORECAST } from "../../constants";
 
 export const getData = (location) => {
-  console.log(location);
   return async dispatch => {
-    const state = location.state
-    if (state) {
-      window.addEventListener(
-        "beforeunload",
-        window.sessionStorage.setItem("key", state.name)
-      );
-    }
-    const loadData = undefined;
-    const stateCheck = loadData ? state.name : window.sessionStorage.getItem("key");
-    const urlWeather = `${URL_FORECAST}q=${stateCheck}&units=metric${API_KEY_OW}`;
-    const urlImage = `${URL_IMAGE + API_KEY_US}&page=1&query=${stateCheck} city buildings`;
+    
+    const urlWeather = `${URL_FORECAST}q=${location}&units=metric${API_KEY_OW}`;
+    const urlImage = `${URL_IMAGE + API_KEY_US}&page=1&query=${location} city buildings`;
     await axios
       .all([
         axios.get(urlWeather),
