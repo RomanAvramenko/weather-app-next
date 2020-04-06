@@ -9,7 +9,7 @@ import Router from "next/router";
 
 const Expand = () => {
   const dispatch = useDispatch();
-  const { expandForecast, imageResp } = useSelector((state) => state.expand);
+  const { loading } = useSelector((state) => state.expand);
 
   useEffect(() => {
     const state = Router.router.query.name;
@@ -54,7 +54,7 @@ const Expand = () => {
     );
   };
 
-  return !expandForecast || !imageResp ? <Spinner /> : renderChild();
+  return loading ? <Spinner /> : renderChild();
 };
 
 export default Expand;
