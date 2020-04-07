@@ -9,52 +9,43 @@ import Router from "next/router";
 
 const Expand = () => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.expand);
+  const { expandForecast, imageResp } = useSelector(
+    (state) => state.expand
+  );
 
   useEffect(() => {
     const state = Router.router.query.name;
-    if (Router.router) {
-      window.addEventListener(
-        "beforeunload",
-        window.sessionStorage.setItem("key", state)
-      );
-    }
-    const loadData = undefined;
-    const stateCheck = loadData ? state : window.sessionStorage.getItem("key");
-    dispatch(getData(stateCheck));
+    dispatch(getData(state));
     // eslint-disable-next-line
   }, []);
 
-  const renderChild = () => {
-    return (
-      <>
-        <Header />
-        <ExpandForecast />
-        <ExpandPicture />
-        <style jsx global>
-          {`
-            @font-face {
-              font-family: "Roboto";
-              src: url("/public/fonts/Roboto-Regular.ttf");
-            }
-            * {
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-            }
-            body {
-              background-color: #d8d8d8;
-              font-family: "Roboto";
-              -webkit-font-smoothing: antialiased;
-              -moz-osx-font-smoothing: grayscale;
-            }
-          `}
-        </style>
-      </>
-    );
-  };
+  return (
+    <>
+      <Header />
+      {!expandForecast ? <Spinner /> : <ExpandForecast />}
+      {imageResp.length === 0 ? <Spinner /> : <ExpandPicture />}
 
-  return loading ? <Spinner /> : renderChild();
+      <style jsx global>
+        {`
+          @font-face {
+            font-family: "Roboto";
+            src: url("/public/fonts/Roboto-Regular.ttf");
+          }
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            background-color: #d8d8d8;
+            font-family: "Roboto";
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+        `}
+      </style>
+    </>
+  );
 };
 
 export default Expand;

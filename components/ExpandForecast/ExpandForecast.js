@@ -1,13 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import PropTypes from "prop-types";
 import moment from "moment";
 
 export const ExpandForecast = () => {
-  const { id, name, list } = useSelector(
-    (state) => state.expand.expandForecast
-  );
-  console.log(id);
+  const forecast = useSelector(state => state.expand.expandForecast);
+  const id = forecast.id
+  const name = forecast.name
+  const list = forecast.list
   const _imgUrl = "https://openweathermap.org/img/wn/";
   const weatherIcon = (index) =>
     `${_imgUrl}${list[index].weather[0].icon}@2x.png`;
@@ -116,8 +115,4 @@ export const ExpandForecast = () => {
       `}</style>
     </>
   );
-};
-
-ExpandForecast.propTypes = {
-  expandForecast: PropTypes.object,
 };
